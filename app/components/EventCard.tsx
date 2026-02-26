@@ -28,7 +28,7 @@ export function EventCard({ event }: { event: any }) {
       href={`/evenements/${event.slug}`}
      className="
 group relative block overflow-hidden rounded-3xl
-border-2 border-[#187B73]/40
+border-[3px] border-[#187B73]/40
 bg-white
 transition
 hover:border-[#187B73]/70
