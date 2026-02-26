@@ -4,14 +4,16 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useMemo, useState } from "react"
+import ThemeSwitch from "../components/ThemeSwitch";
+import { CalendarDays, Archive, Image as ImageIcon } from "lucide-react"
 
 const DISCORD_URL = "https://discord.gg/RA5BXbZKaW"
 const INSTAGRAM_URL = "https://instagram.com/toncompte" // ← mets ton vrai lien
 
 const NAV = [
-  { href: "/evenements", label: "À venir" },
-  { href: "/archives", label: "Archives" },
-  { href: "/galerie", label: "Galerie" },
+  { href: "/evenements", label: "À venir", icon: CalendarDays },
+  { href: "/archives", label: "Archives", icon: Archive },
+  { href: "/galerie", label: "Galerie", icon: ImageIcon },
 ]
 
 function isActive(pathname: string, href: string) {
@@ -54,27 +56,33 @@ export function Navbar() {
         {/* Navigation desktop */}
         <nav className="hidden md:block">
           <div className="relative flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1">
-            {items.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={[
-                  "relative rounded-full px-4 py-2 text-sm font-medium transition",
-                  item.active ? "text-white" : "text-white/70 hover:text-white",
-                ].join(" ")}
-              >
-                {item.label}
-                {item.active && (
-                  <span className="absolute inset-x-2 -bottom-[2px] h-[2px] rounded-full bg-gradient-to-r from-purple-500 to-indigo-500" />
-                )}
-              </Link>
-            ))}
+            {items.map((item) => {
+  const Icon = item.icon
+
+  return (
+    <Link
+      key={item.href}
+      href={item.href}
+      className={[
+        "relative flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition",
+        item.active ? "text-white" : "text-white/70 hover:text-white",
+      ].join(" ")}
+    >
+      <Icon size={16} strokeWidth={2} />
+      {item.label}
+
+      {item.active && (
+        <span className="absolute inset-x-2 -bottom-[2px] h-[2px] rounded-full bg-gradient-to-r from-purple-500 to-indigo-500" />
+      )}
+    </Link>
+  )
+})}
           </div>
         </nav>
 
         {/* Right side */}
         <div className="flex items-center gap-3">
-
+<ThemeSwitch />
           <a
   href={DISCORD_URL}
   target="_blank"

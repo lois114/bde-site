@@ -2,14 +2,16 @@ import Link from "next/link"
 import { sanity } from "../../lib/sanity"
 import { galleryQuery } from "../../lib/queries"
 import { SanityImage } from "../../lib/SanityImage2"
-
+import { ImageIcon } from "lucide-react"
 export default async function Page() {
   const events = await sanity.fetch(galleryQuery)
 
   return (
     <main className="mx-auto max-w-5xl p-6">
-      <h1 className="text-3xl font-semibold">Galerie</h1>
-
+      <h1 className="flex items-center gap-3 text-3xl font-semibold">
+  <ImageIcon className="h-7 w-7 text-[#FFFFF]" strokeWidth={2} />
+  Galerie
+</h1>
       {events.length === 0 && (
         <p className="mt-6 opacity-70">Aucune photo disponible.</p>
       )}
