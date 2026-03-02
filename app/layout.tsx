@@ -3,6 +3,12 @@ import "./globals.css"
 import Image from "next/image"
 import { Navbar } from "./components/Navbar"
 
+export const metadata = {
+  title: "BDE Ynov Toulouse",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
    <html lang="fr">
