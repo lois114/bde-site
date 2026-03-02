@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
     {/* Background layers */}
     <div className="pointer-events-none fixed inset-0 -z-10">
-
+    
       {/* DARK MODE GLOWS */}
       <div className="absolute left-[-15%] top-[-10%] h-[500px] w-[500px] rounded-full bg-purple-600/25 blur-[140px] dark:block hidden" />
       <div className="absolute right-[-10%] top-[20%] h-[450px] w-[450px] rounded-full bg-cyan-500/20 blur-[140px] dark:block hidden" />
@@ -39,3 +39,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 </html>
   )
 }
+
+

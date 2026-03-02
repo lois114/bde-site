@@ -8,7 +8,9 @@ import ThemeSwitch from "../components/ThemeSwitch";
 import { CalendarDays, Archive, Image as ImageIcon } from "lucide-react"
 
 const DISCORD_URL = "https://discord.gg/RA5BXbZKaW"
-const INSTAGRAM_URL = "https://instagram.com/toncompte" // ← mets ton vrai lien
+const INSTAGRAM_URL = "https://www.instagram.com/bde.ynovtoulouse/?hl=fr" // ← mets ton vrai lien
+const TWITCH_URL = "https://www.twitch.tv/bde_ynot" // ← mets ton vrai lien
+const TIKTOK_URL = "https://www.tiktok.com/@bde.ynov.toulouse" // ← mets le vrai
 
 const NAV = [
   { href: "/evenements", label: "À venir", icon: CalendarDays },
@@ -39,19 +41,32 @@ export function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         
         {/* Logo */}
-        <Link href="/evenements" className="flex items-center gap-3">
-          <Image
-            src="/YnovLogo.png"
-            alt="Logo BDE"
-            width={36}
-            height={36}
-            className="rounded-xl object-contain"
-            priority
-          />
-          <div className="text-sm font-semibold tracking-tight text-white">
-            Ynov Toulouse
-          </div>
-        </Link>
+       <Link
+  href="/evenements"
+  className="group flex items-center gap-3 rounded-2xl px-3 py-2 transition hover:bg-white/5"
+>
+  <div className="relative">
+    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/30 to-purple-500/30 blur-md opacity-0 transition group-hover:opacity-100" />
+    
+    <Image
+      src="/YnovLogo.png"
+      alt="Logo BDE"
+      width={40}
+      height={40}
+      className="relative rounded-xl object-contain"
+      priority
+    />
+  </div>
+
+  <div className="flex flex-col leading-tight">
+    <span className="text-xs uppercase tracking-widest text-white/50">
+      BDE
+    </span>
+    <span className="text-sm font-semibold bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+      Ynov Toulouse
+    </span>
+  </div>
+</Link>
 
         {/* Navigation desktop */}
         <nav className="hidden md:block">
@@ -83,37 +98,87 @@ export function Navbar() {
         {/* Right side */}
         <div className="flex items-center gap-3">
 <ThemeSwitch />
-          <a
-  href={DISCORD_URL}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="hidden md:inline-flex items-center gap-2 rounded-full bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-500"
->
-  <Image
-    src="/discord.svg"
-    alt="Discord"
-    width={18}
-    height={18}
-    className="invert"
-  />
-  Discord
-</a>
+          <div className="relative hidden md:block">
+  <svg width="0" height="0" style={{ position: "absolute" }}>
+    <defs>
+      <clipPath id="squircleClip" clipPathUnits="objectBoundingBox">
+        <path d="M 0,0.5 C 0,0 0,0 0.5,0 S 1,0 1,0.5 1,1 0.5,1 0,1 0,0.5" />
+      </clipPath>
+    </defs>
+  </svg>
 
-        <a
-  href={INSTAGRAM_URL}
+  <div className="absolute inset-0 bg-black/20 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl" />
+
+  <div className="relative flex items-end gap-x-2 p-2">
+    
+    {/* Instagram */}
+    <a
+      href={INSTAGRAM_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ clipPath: "url(#squircleClip)" }}
+      className="w-8 h-8 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 rounded-xl flex items-center justify-center shadow-lg border border-pink-500/40 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 hover:shadow-2xl"
+    >
+      <Image
+        src="/instagram.svg"
+        alt="Instagram"
+        width={20}
+        height={20}
+        className="invert"
+      />
+    </a>
+{/* Twitch */}
+<a
+  href={TWITCH_URL}
   target="_blank"
   rel="noopener noreferrer"
-  className="hidden md:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90"
+  style={{ clipPath: "url(#squircleClip)" }}
+  className="w-8 h-8 bg-gradient-to-br from-purple-600 to-purple-800 rounded-xl flex items-center justify-center shadow-lg border border-purple-500/50 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 hover:shadow-2xl"
 >
   <Image
-    src="/instagram.svg"
-    alt="Instagram"
-    width={18}
-    height={18}
+    src="/twitch.svg"
+    alt="Twitch"
+    width={20}
+    height={20}
     className="invert"
   />
-  Instagram
 </a>
+    {/* Discord */}
+    <a
+      href={DISCORD_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ clipPath: "url(#squircleClip)" }}
+      className="w-8 h-8 bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-xl flex items-center justify-center shadow-lg border border-indigo-500/50 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 hover:shadow-2xl"
+    >
+      <Image
+        src="/discord.svg"
+        alt="Discord"
+        width={20}
+        height={20}
+        className="invert"
+      />
+    </a>
+
+    {/* TIKTOK */}
+    <a
+      href={TIKTOK_URL    }
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ clipPath: "url(#squircleClip)" }}
+      className="w-8 h-8 bg-gradient-to-br from-black to-neutral-800 rounded-xl flex items-center justify-center shadow-lg border border-white/10 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 hover:shadow-2xl"
+ >
+      <Image
+        src="/tiktok.svg"
+        alt="Tiktok"
+        width={20}
+        height={20}
+        className="invert"
+      />
+    </a>
+
+  </div>
+</div>
 
           {/* Mobile burger */}
           <button
