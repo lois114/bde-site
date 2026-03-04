@@ -76,7 +76,7 @@ export default function Home() {
                 dark:hover:bg-white/20
               "
             >
-              <ImageIcon className="h-5 w-5" />
+              <Image className="h-5 w-5" />
               Galerie
             </Link>
           </div>
@@ -140,8 +140,8 @@ export default function Home() {
           className="group rounded-3xl border border-black/10 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-lg dark:border-white/10 dark:bg-white/5"
         >
           <div className="flex items-center gap-3">
-            <div className="rounded-2xl bg-indigo-500/10 p-3 text-indigo-600 dark:bg-white/10 dark:text-white">
-              <Archive className="h-6 w-6" />
+            <div className="rounded-2xl bg-indigo-500/10 p-3 text-indigo-600 dark:bg-white/10 dark:text-white ">
+              <Archive className="h-6 w-6 " />
             </div>
             <div className="text-lg font-semibold text-zinc-900 dark:text-white">
               Archives
@@ -161,7 +161,7 @@ export default function Home() {
         >
           <div className="flex items-center gap-3">
             <div className="rounded-2xl bg-pink-500/10 p-3 text-pink-600 dark:bg-white/10 dark:text-white">
-              <ImageIcon className="h-6 w-6" />
+              <Image className="h-6 w-6" />
             </div>
             <div className="text-lg font-semibold text-zinc-900 dark:text-white">
               Galerie
