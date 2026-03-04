@@ -2,6 +2,7 @@ import { sanity } from "../../../lib/sanity"
 import { eventBySlugQuery } from "../../../lib/queries"
 import { PortableText } from "@portabletext/react"
 import { SanityImage } from "../../../lib/SanityImage2"
+import { AddToCalendarButton } from "@/app/components/AddToCalendarButton"
 
 function youtubeId(url: string) {
   try {
@@ -74,6 +75,7 @@ export default async function Page({
 
         {/* Actions (mieux dans le bloc) */}
         <div className="mt-6 flex flex-wrap gap-3">
+          {!isPast ? <AddToCalendarButton event={event} /> : null}
           {event.signupUrl && !isPast ? (
             <a
               href={event.signupUrl}
