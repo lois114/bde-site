@@ -5,6 +5,8 @@ import { EventCard } from "../components/EventCard"
 import ThemeSwitch from "../components/ThemeSwitch";
 import { Archive } from "lucide-react"
 
+export const revalidate = 60
+
 export default async function Page() {
   const events = await sanity.fetch(pastEventsQuery)
 

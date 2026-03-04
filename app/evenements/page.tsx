@@ -2,6 +2,9 @@ import { sanity } from "../../lib/sanity"
 import { upcomingEventsQuery } from "../../lib/queries"
 import { EventCard } from "../components/EventCard"
 import { CalendarDays } from "lucide-react"
+
+export const revalidate = 60
+
 export default async function Page() {
   const events = await sanity.fetch(upcomingEventsQuery)
 

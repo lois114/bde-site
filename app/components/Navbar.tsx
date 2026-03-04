@@ -49,7 +49,7 @@ export function Navbar() {
         
         {/* Logo */}
        <Link
-  href="/evenements"
+  href="/"
   className="group flex items-center gap-3 rounded-2xl px-3 py-2 transition hover:bg-white/5"
 >
   <div className="relative">

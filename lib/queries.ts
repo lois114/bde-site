@@ -57,3 +57,4 @@ export const galleryQuery = `
   photoAlbum
 }
 `
+
