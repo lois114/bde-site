@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { CalendarDays, Image as ImageIcon, Sparkles } from "lucide-react"
+import { Archive, CalendarDays, Image, Archive as ImageIcon, Sparkles } from "lucide-react"
 
 export default function Home() {
   return (
@@ -141,7 +141,7 @@ export default function Home() {
         >
           <div className="flex items-center gap-3">
             <div className="rounded-2xl bg-indigo-500/10 p-3 text-indigo-600 dark:bg-white/10 dark:text-white">
-              <CalendarDays className="h-6 w-6" />
+              <Archive className="h-6 w-6" />
             </div>
             <div className="text-lg font-semibold text-zinc-900 dark:text-white">
               Archives
