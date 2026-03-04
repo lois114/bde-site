@@ -2,14 +2,24 @@
 import Link from "next/link"
 import { SanityImage } from "../../lib/SanityImage2"
 
-function formatDateFR(dateStr: string) {
-  const d = new Date(dateStr)
-  return d.toLocaleString("fr-FR", {
+export function formatDateFR(input: string | Date) {
+  const d = typeof input === "string" ? new Date(input) : input;
+
+  const date = new Intl.DateTimeFormat("fr-FR", {
     day: "2-digit",
     month: "short",
+    timeZone: "Europe/Paris",
+  }).format(d);
+
+  const time = new Intl.DateTimeFormat("fr-FR", {
     hour: "2-digit",
-    minute: "2-digit"
-  })
+    minute: "2-digit",
+    hour12: false,
+    timeZone: "Europe/Paris",
+  }).format(d);
+
+  // On construit nous-mêmes la string => même rendu partout
+  return `${date} à ${time}`;
 }
 
 function isEventOver(event: any) {

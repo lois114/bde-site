@@ -8,28 +8,46 @@ export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
+  let saved: string | null = null;
+  try { saved = localStorage.getItem("theme"); } catch {}
 
-    if (saved === "dark") {
-      document.documentElement.classList.add("dark");
-      setDark(true);
-    }
+  const root = document.documentElement;
+  const body = document.body;
 
-    setMounted(true);
-  }, []);
+  if (saved === "dark") {
+    root.classList.add("dark");
+    body.classList.add("dark");
+    root.style.colorScheme = "dark";
+    setDark(true);
+  } else {
+    root.classList.remove("dark");
+    body.classList.remove("dark");
+    root.style.colorScheme = "light";
+    setDark(false);
+  }
+
+  setMounted(true);
+}, []);
 
   const toggle = () => {
-    const next = !dark;
-    setDark(next);
+  const next = !dark;
+  setDark(next);
 
-    if (next) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
+  const root = document.documentElement;
+  const body = document.body;
+
+  if (next) {
+    root.classList.add("dark");
+    body.classList.add("dark"); // ✅ iOS help
+    root.style.colorScheme = "dark"; // ✅ force repaint / form controls
+    try { localStorage.setItem("theme", "dark"); } catch {}
+  } else {
+    root.classList.remove("dark");
+    body.classList.remove("dark"); // ✅ iOS help
+    root.style.colorScheme = "light";
+    try { localStorage.setItem("theme", "light"); } catch {}
+  }
+};
 
   if (!mounted) return null;
 

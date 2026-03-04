@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { useMemo, useState } from "react"
+import { useMemo, useState,useEffect } from "react"
 import ThemeSwitch from "../components/ThemeSwitch";
 import { CalendarDays, Archive, Image as ImageIcon } from "lucide-react"
 
@@ -18,6 +18,8 @@ const NAV = [
   { href: "/galerie", label: "Galerie", icon: ImageIcon },
 ]
 
+
+
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/"
   return pathname === href || pathname.startsWith(href + "/")
@@ -26,6 +28,11 @@ function isActive(pathname: string, href: string) {
 export function Navbar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+
+   useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+
 
   const items = useMemo(
     () =>
@@ -193,37 +200,47 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t border-white/10 bg-neutral-950/80 backdrop-blur-xl md:hidden">
-          <div className="mx-auto max-w-6xl px-6 py-4 grid gap-2">
+  <div className="border-t border-white/10 bg-neutral-950/90 backdrop-blur-xl md:hidden animate-in slide-in-from-top duration-300">
+    <div className="mx-auto max-w-6xl px-6 py-6 space-y-3">
 
-            {items.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-white/80 transition hover:text-white"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {items.map((item) => {
+  const Icon = item.icon
 
-            <a
-              href={DISCORD_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-2xl border border-white/10 bg-indigo-600 px-4 py-3 text-sm font-medium text-white"
-            >
-              Discord
-            </a>
+  return (
+    <Link
+      key={item.href}
+      href={item.href}
+      onClick={() => setOpen(false)}
+      className={[
+        "flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium transition",
+        item.active
+          ? "text-white bg-white/10"
+          : "text-white/70 hover:text-white hover:bg-white/10",
+      ].join(" ")}
+    >
+      <Icon size={18} />
+      {item.label}
+    </Link>
+  )
+})}
 
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-2xl border border-white/10 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 px-4 py-3 text-sm font-medium text-white"
-            >
-              Instagram
-            </a>
+            <div className="pt-4 border-t border-white/10 flex items-center justify-center gap-4">
+  <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
+    <Image src="/instagram.svg" alt="Instagram" width={22} height={22} className="opacity-80 hover:opacity-100 invert" />
+  </a>
+
+  <a href={TWITCH_URL} target="_blank" rel="noopener noreferrer">
+    <Image src="/twitch.svg" alt="Twitch" width={22} height={22} className="opacity-80 hover:opacity-100 invert" />
+  </a>
+
+  <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
+    <Image src="/discord.svg" alt="Discord" width={22} height={22} className="opacity-80 hover:opacity-100 invert" />
+  </a>
+
+  <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer">
+    <Image src="/tiktok.svg" alt="Tiktok" width={22} height={22} className="opacity-80 hover:opacity-100 invert" />
+  </a>
+</div>
 
           </div>
         </div>
