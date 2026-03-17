@@ -3,6 +3,7 @@ import { eventBySlugQuery } from "../../../lib/queries"
 import { PortableText } from "@portabletext/react"
 import { SanityImage } from "../../../lib/SanityImage2"
 import { AddToCalendarButton } from "@/app/components/AddToCalendarButton"
+import { LightboxGallery } from "@/app/components/LightboxGallery"
 
 function youtubeId(url: string) {
   try {
@@ -101,28 +102,18 @@ export default async function Page({
         </div>
       </section>
 
-      {/* Photos */}
-      {event.photoAlbum?.length ? (
-        <>
-          <h2 className="mt-10 text-2xl font-semibold">Photos</h2>
-          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-            {event.photoAlbum.map((img: any, i: number) => (
-              <div
-                key={i}
-                className="aspect-square overflow-hidden rounded-2xl border border-black/10 dark:border-white/10"
-              >
-                <SanityImage
-                  source={img}
-                  alt={`${event.title} photo ${i + 1}`}
-                  width={800}
-                  height={800}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </>
-      ) : null}
+    {event.photoAlbum?.length ? (
+  <>
+    <h2 className="mt-10 text-2xl font-semibold">Photos</h2>
+    <div className="mt-4">
+      <LightboxGallery
+        images={event.photoAlbum}
+        title={event.title}
+        columnsClassName="grid grid-cols-2 gap-3 sm:grid-cols-3"
+      />
+    </div>
+  </>
+) : null}
 
       {/* Videos */}
       {event.videos?.length ? (
