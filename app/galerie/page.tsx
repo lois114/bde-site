@@ -5,7 +5,7 @@ import { SanityImage } from "../../lib/SanityImage2"
 import { ImageIcon } from "lucide-react"
 export default async function Page() {
   const events = await sanity.fetch(galleryQuery)
-
+  console.log(events)
   return (
     <main className="mx-auto max-w-5xl p-6">
       <h1 className="flex items-center gap-3 text-3xl font-semibold">

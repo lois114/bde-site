@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { SanityImage } from "../../lib/SanityImage2"
 
+
 export function formatDateFR(input: string | Date) {
   const d = typeof input === "string" ? new Date(input) : input;
 

@@ -26,7 +26,7 @@ export function AddToCalendarButton({ event }: { event: any }) {
         window.open(url, "_blank", "noopener,noreferrer")
       }}
     >
-      📅 Ajouter à Google Calendar
+      📅 Google Calendar
     </button>
   )
 }
