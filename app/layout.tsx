@@ -41,6 +41,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {children}
     </main>
 
+    <footer className="mt-10 border-t border-white/10 bg-neutral-950/50 backdrop-blur">
+      <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
+        <div className="flex items-center gap-2 text-sm text-white/50">
+          <Image src="/YnovLogo.png" alt="Logo BDE" width={20} height={20} className="rounded-md opacity-60" />
+          <span>BDE Ynov Toulouse</span>
+        </div>
+        <p className="text-xs text-white/40">
+          © {new Date().getFullYear()} BDE Ynov Toulouse — Tous droits réservés
+        </p>
+      </div>
+    </footer>
+
   </body>
 </html>
   )
