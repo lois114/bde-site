@@ -21,13 +21,13 @@ export default async function Page() {
       <div className="mt-8 space-y-12">
         {events.map((event: any) => (
           <section key={event._id}>
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
               <h2 className="text-xl font-semibold">{event.title}</h2>
               <Link
                 href={`/evenements/${event.slug}`}
-                className="text-sm underline"
+                className="text-sm underline opacity-70 hover:opacity-100"
               >
-                Voir l’événement
+                Voir l’événement →
               </Link>
             </div>
 

@@ -190,7 +190,7 @@ export function Navbar() {
           {/* Mobile burger */}
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 p-2 text-white/80 transition hover:bg-white/10 md:hidden"
+            className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 p-3 text-white/80 transition hover:bg-white/10 md:hidden"
             onClick={() => setOpen((v) => !v)}
           >
             <span className="text-lg">{open ? "✕" : "☰"}</span>
@@ -224,20 +224,20 @@ export function Navbar() {
   )
 })}
 
-            <div className="pt-4 border-t border-white/10 flex items-center justify-center gap-4">
-  <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
+            <div className="pt-4 border-t border-white/10 flex items-center justify-center gap-2">
+  <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-11 h-11 rounded-xl bg-white/5 hover:bg-white/10 transition">
     <Image src="/instagram.svg" alt="Instagram" width={22} height={22} className="opacity-80 hover:opacity-100 invert" />
   </a>
 
-  <a href={TWITCH_URL} target="_blank" rel="noopener noreferrer">
+  <a href={TWITCH_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-11 h-11 rounded-xl bg-white/5 hover:bg-white/10 transition">
     <Image src="/twitch.svg" alt="Twitch" width={22} height={22} className="opacity-80 hover:opacity-100 invert" />
   </a>
 
-  <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
+  <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-11 h-11 rounded-xl bg-white/5 hover:bg-white/10 transition">
     <Image src="/discord.svg" alt="Discord" width={22} height={22} className="opacity-80 hover:opacity-100 invert" />
   </a>
 
-  <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer">
+  <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-11 h-11 rounded-xl bg-white/5 hover:bg-white/10 transition">
     <Image src="/tiktok.svg" alt="Tiktok" width={22} height={22} className="opacity-80 hover:opacity-100 invert" />
   </a>
 </div>
