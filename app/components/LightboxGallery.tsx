@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { SanityImage } from "../../lib/SanityImage2"
 
 export function LightboxGallery({
@@ -13,6 +13,7 @@ export function LightboxGallery({
   columnsClassName?: string
 }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+  const touchStartX = useRef<number | null>(null)
 
   const close = () => setSelectedIndex(null)
 
@@ -24,6 +25,19 @@ export function LightboxGallery({
   const next = () => {
     if (selectedIndex === null) return
     setSelectedIndex((selectedIndex + 1) % images.length)
+  }
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return
+    const delta = touchStartX.current - e.changedTouches[0].clientX
+    if (Math.abs(delta) > 50) {
+      delta > 0 ? next() : prev()
+    }
+    touchStartX.current = null
   }
 
   useEffect(() => {
@@ -69,6 +83,8 @@ export function LightboxGallery({
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
           onClick={close}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
         >
           <button
             type="button"
@@ -87,7 +103,7 @@ export function LightboxGallery({
                   e.stopPropagation()
                   prev()
                 }}
-                className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 px-4 py-3 text-2xl text-white backdrop-blur transition hover:bg-white/20"
+                className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-3 text-2xl text-white backdrop-blur transition hover:bg-white/20 sm:left-4 sm:px-4 sm:py-3"
                 aria-label="Image précédente"
               >
                 ‹
@@ -99,7 +115,7 @@ export function LightboxGallery({
                   e.stopPropagation()
                   next()
                 }}
-                className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 px-4 py-3 text-2xl text-white backdrop-blur transition hover:bg-white/20"
+                className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-3 text-2xl text-white backdrop-blur transition hover:bg-white/20 sm:right-4 sm:px-4 sm:py-3"
                 aria-label="Image suivante"
               >
                 ›

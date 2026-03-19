@@ -8,7 +8,7 @@ export default async function Page() {
   const events = await sanity.fetch(galleryQuery)
 
   return (
-    <main className="mx-auto max-w-5xl p-6">
+    <main className="mx-auto max-w-5xl p-4 sm:p-6">
       <h1 className="flex items-center gap-3 text-3xl font-semibold">
         <ImageIcon className="h-7 w-7 text-white" strokeWidth={2} />
         Galerie

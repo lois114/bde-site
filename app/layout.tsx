@@ -22,14 +22,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <div className="pointer-events-none fixed inset-0 -z-10">
     
       {/* DARK MODE GLOWS */}
-      <div className="absolute left-[-15%] top-[-10%] h-[500px] w-[500px] rounded-full bg-purple-600/25 blur-[140px] dark:block hidden" />
-      <div className="absolute right-[-10%] top-[20%] h-[450px] w-[450px] rounded-full bg-cyan-500/20 blur-[140px] dark:block hidden" />
-      <div className="absolute bottom-[-20%] left-[30%] h-[500px] w-[500px] rounded-full bg-[#187B73]/25 blur-[160px] dark:block hidden" />
+      <div className="absolute left-[-5%] top-[-5%] h-[220px] w-[220px] rounded-full bg-purple-600/25 blur-[80px] dark:block hidden sm:left-[-15%] sm:top-[-10%] sm:h-[500px] sm:w-[500px] sm:blur-[140px]" />
+      <div className="absolute right-[-5%] top-[20%] h-[200px] w-[200px] rounded-full bg-cyan-500/20 blur-[80px] dark:block hidden sm:right-[-10%] sm:h-[450px] sm:w-[450px] sm:blur-[140px]" />
+      <div className="absolute bottom-[-10%] left-[20%] h-[220px] w-[220px] rounded-full bg-[#187B73]/25 blur-[80px] dark:block hidden sm:bottom-[-20%] sm:left-[30%] sm:h-[500px] sm:w-[500px] sm:blur-[160px]" />
 
       {/* WHITE MODE GLOWS */}
-      <div className="absolute left-[-15%] top-[-10%] h-[500px] w-[500px] rounded-full bg-purple-500/10 blur-[140px] dark:hidden" />
-      <div className="absolute right-[-10%] top-[20%] h-[450px] w-[450px] rounded-full bg-[#187B73]/15 blur-[160px] dark:hidden" />
-      <div className="absolute bottom-[-20%] left-[30%] h-[500px] w-[500px] rounded-full bg-cyan-400/10 blur-[160px] dark:hidden" />
+      <div className="absolute left-[-5%] top-[-5%] h-[220px] w-[220px] rounded-full bg-purple-500/10 blur-[80px] dark:hidden sm:left-[-15%] sm:top-[-10%] sm:h-[500px] sm:w-[500px] sm:blur-[140px]" />
+      <div className="absolute right-[-5%] top-[20%] h-[200px] w-[200px] rounded-full bg-[#187B73]/15 blur-[80px] dark:hidden sm:right-[-10%] sm:h-[450px] sm:w-[450px] sm:blur-[160px]" />
+      <div className="absolute bottom-[-10%] left-[20%] h-[220px] w-[220px] rounded-full bg-cyan-400/10 blur-[80px] dark:hidden sm:bottom-[-20%] sm:left-[30%] sm:h-[500px] sm:w-[500px] sm:blur-[160px]" />
 
       {/* Subtle radial texture */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.04),transparent_70%)]" />
@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
     <Navbar />
 
-    <main className="mx-auto max-w-6xl px-6 py-10 text-zinc-900 dark:text-white">
+    <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-10 text-zinc-900 dark:text-white">
       {children}
     </main>
 

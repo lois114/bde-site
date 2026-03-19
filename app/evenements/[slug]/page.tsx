@@ -25,7 +25,7 @@ export default async function Page({
   const event = await sanity.fetch(eventBySlugQuery, { slug })
   if (!event) {
     return (
-      <main className="mx-auto max-w-4xl p-6 text-zinc-900 dark:text-white">
+      <main className="mx-auto max-w-4xl p-4 sm:p-6 text-zinc-900 dark:text-white">
         Événement introuvable
       </main>
     )
@@ -36,7 +36,7 @@ export default async function Page({
   const isPast = new Date(event.startDate) < now
 
   return (
-    <main className="mx-auto max-w-4xl p-6 text-zinc-900 dark:text-white">
+    <main className="mx-auto max-w-4xl p-4 sm:p-6 text-zinc-900 dark:text-white">
       {cover ? (
         <div className="mt-2 overflow-hidden rounded-3xl border border-black/10 dark:border-white/10">
           <SanityImage

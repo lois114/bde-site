@@ -4,9 +4,9 @@ import { Archive, CalendarDays, Image as ImageIcon, Sparkles } from "lucide-reac
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-6xl p-8">
+    <main className="mx-auto max-w-6xl p-4 sm:p-8">
       {/* HERO */}
-      <section className="relative overflow-hidden rounded-3xl border border-black/10 bg-white p-8 shadow-sm dark:border-white/10 dark:bg-white/5 sm:p-12">
+      <section className="relative overflow-hidden rounded-3xl border border-black/10 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-white/5 sm:p-8 lg:p-12">
         {/* background glow */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[#187B73]/25 blur-3xl" />
@@ -14,14 +14,14 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/10 to-transparent dark:from-white/10 dark:via-transparent" />
         </div>
 
-        <div className="relative grid items-center gap-10 lg:grid-cols-2">
+        <div className="relative grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs font-medium text-zinc-800 backdrop-blur dark:border-white/10 dark:bg-white/10 dark:text-white/80">
               <Sparkles className="h-4 w-4 text-[#187B73]" />
               BDE • Ynov Toulouse
             </div>
 
-            <h1 className="mt-5 text-4xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-5xl">
+            <h1 className="mt-5 text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl lg:text-5xl">
               Des events, des souvenirs,{" "}
               <span className="bg-gradient-to-r from-[#187B73] to-indigo-500 bg-clip-text text-transparent">
                 toute l’année

@@ -11,7 +11,7 @@ export default async function Page() {
   const events = await sanity.fetch(pastEventsQuery)
 
   return (
-    <main className="mx-auto max-w-6xl p-8">
+    <main className="mx-auto max-w-6xl p-4 sm:p-8">
       <h1 className="flex items-center gap-3 text-3xl font-semibold">
   <Archive className="h-7 w-7 text-[#FFFFF]" strokeWidth={2} />
   Archives

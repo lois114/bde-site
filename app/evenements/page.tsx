@@ -9,7 +9,7 @@ export default async function Page() {
   const events = await sanity.fetch(upcomingEventsQuery)
 
   return (
-    <main className="mx-auto max-w-6xl p-8">
+    <main className="mx-auto max-w-6xl p-4 sm:p-8">
      <h1 className="flex items-center gap-3 text-3xl font-semibold">
   <CalendarDays className="h-7 w-7 text-[#FFFFF]" strokeWidth={2} />
   Evénements à venir
