@@ -1,8 +1,9 @@
 import Image from "next/image"
 import { urlFor } from "./sanityImage"
+import type { SanityImageSource } from "../types"
 
 type Props = {
-  source: any
+  source: SanityImageSource
   alt: string
   width: number
   height: number

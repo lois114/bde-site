@@ -1,6 +1,7 @@
 'use client'
 import Link from "next/link"
 import { SanityImage } from "../../lib/SanityImage2"
+import type { EventSummary } from "../../types"
 
 
 export function formatDateFR(input: string | Date) {
@@ -23,7 +24,7 @@ export function formatDateFR(input: string | Date) {
   return `${date} à ${time}`;
 }
 
-function isEventOver(event: any) {
+function isEventOver(event: EventSummary) {
   const now = new Date()
   const end = event.endDate
     ? new Date(event.endDate)
@@ -31,7 +32,7 @@ function isEventOver(event: any) {
   return end < now
 }
 
-export function EventCard({ event }: { event: any }) {
+export function EventCard({ event }: { event: EventSummary }) {
   const eventOver = isEventOver(event)
 
   return (

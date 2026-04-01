@@ -6,11 +6,12 @@ import { usePathname } from "next/navigation"
 import { useMemo, useState,useEffect } from "react"
 import ThemeSwitch from "../components/ThemeSwitch";
 import { CalendarDays, Archive, Image as ImageIcon } from "lucide-react"
+import { SOCIAL_LINKS } from "../../lib/config"
 
-const DISCORD_URL = "https://discord.gg/RA5BXbZKaW"
-const INSTAGRAM_URL = "https://www.instagram.com/bde.ynovtoulouse/?hl=fr" // ← mets ton vrai lien
-const TWITCH_URL = "https://www.twitch.tv/bde_ynot" // ← mets ton vrai lien
-const TIKTOK_URL = "https://www.tiktok.com/@bde.ynov.toulouse" // ← mets le vrai
+const DISCORD_URL = SOCIAL_LINKS.discord
+const INSTAGRAM_URL = SOCIAL_LINKS.instagram
+const TWITCH_URL = SOCIAL_LINKS.twitch
+const TIKTOK_URL = SOCIAL_LINKS.tiktok
 
 const NAV = [
   { href: "/evenements", label: "À venir", icon: CalendarDays },

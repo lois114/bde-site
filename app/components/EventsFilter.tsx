@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { EventCard } from "./EventCard"
+import type { EventSummary } from "../../types"
 
 const CATEGORIES = [
   { label: "Tous", value: null },
@@ -12,7 +13,7 @@ const CATEGORIES = [
   { label: "Autre", value: "autre" },
 ]
 
-export function EventsFilter({ events }: { events: any[] }) {
+export function EventsFilter({ events }: { events: EventSummary[] }) {
   const [active, setActive] = useState<string | null>(null)
 
   const filtered = active ? events.filter((e) => e.type === active) : events
@@ -42,7 +43,7 @@ export function EventsFilter({ events }: { events: any[] }) {
         <p className="mt-8 opacity-70">Aucun événement dans cette catégorie.</p>
       ) : (
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((event: any) => (
+          {filtered.map((event) => (
             <EventCard key={event._id} event={event} />
           ))}
         </div>

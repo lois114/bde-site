@@ -2,13 +2,14 @@
 
 import { useEffect, useRef, useState } from "react"
 import { SanityImage } from "../../lib/SanityImage2"
+import type { SanityImageAsset } from "../../types"
 
 export function LightboxGallery({
   images,
   title,
   columnsClassName = "grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4",
 }: {
-  images: any[]
+  images: SanityImageAsset[]
   title: string
   columnsClassName?: string
 }) {
