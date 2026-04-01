@@ -2,6 +2,14 @@ import Link from "next/link"
 import Image from "next/image"
 import { Archive, CalendarDays, Image as ImageIcon, Sparkles } from "lucide-react"
 
+const PARTNERS = [
+  { name: "McDonald's", logo: "/macdo.png", url: "https://www.mcdonalds.com/fr/fr-fr.html" },
+  { name: "Jow", logo: "/jow.png", url: "https://jow.fr" },
+  { name: "Revolut", logo: "/revolut.jpg", url: "https://revolut.com" },
+  { name: "Rose Festival", logo: "/rose.jpg", url: "https://www.rosefestival.fr" },
+  { name: "GaroRock", logo: "/garorock.png", url: "https://www.garorock.com" },
+]
+
 export default function Home() {
   return (
     <main className="mx-auto max-w-6xl p-4 sm:p-8">
@@ -151,6 +159,37 @@ export default function Home() {
             Les meilleures photos des events.
           </p>
         </Link>
+      </section>
+
+      {/* PARTENAIRES */}
+      <section className="mt-10 rounded-3xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-white/5 sm:p-8">
+        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-white/30">
+          Nos partenaires
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-6">
+          {PARTNERS.map((partner) => (
+            <a
+              key={partner.name}
+              href={partner.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center gap-2 transition hover:-translate-y-0.5"
+            >
+              <div className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm transition group-hover:shadow-md dark:border-white/10 dark:bg-white">
+                <Image
+                  src={partner.logo}
+                  alt={`Logo ${partner.name}`}
+                  width={48}
+                  height={48}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <span className="text-xs font-medium text-zinc-600 dark:text-white/60">
+                {partner.name}
+              </span>
+            </a>
+          ))}
+        </div>
       </section>
     </main>
   )
