@@ -4,9 +4,29 @@ import Image from "next/image"
 import { Navbar } from "./components/Navbar"
 
 export const metadata = {
-  title: "BDE Ynov Toulouse",
+  title: {
+    default: "BDE Ynov Toulouse",
+    template: "%s • BDE Ynov Toulouse",
+  },
+  description: "Les événements, soirées, archives et galerie photo du BDE Ynov Toulouse.",
+  keywords: ["BDE", "Ynov", "Toulouse", "événements", "soirées", "vie étudiante"],
+  authors: [{ name: "BDE Ynov Toulouse" }],
   icons: {
     icon: "/favicon.ico",
+  },
+  metadataBase: new URL("https://ynov-toulouse-bde.vercel.app"),
+  openGraph: {
+    title: "BDE Ynov Toulouse",
+    description: "Les événements, soirées, archives et galerie photo du BDE Ynov Toulouse.",
+    url: "https://ynov-toulouse-bde.vercel.app",
+    siteName: "BDE Ynov Toulouse",
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BDE Ynov Toulouse",
+    description: "Les événements, soirées, archives et galerie photo du BDE Ynov Toulouse.",
   },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
