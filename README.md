@@ -117,7 +117,7 @@ npm run lint     # ESLint
 
 ## Partenaires (homepage)
 
-McDonald's · Jow · Revolut · Rose Festival · GaroRock
+McDonald's · Jow · Revolut · Rose Festival · GaroRock . Matoto & Co
 (logos servis depuis `/public`)
 
 ---
